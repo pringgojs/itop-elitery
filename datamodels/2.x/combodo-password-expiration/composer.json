@@ -1,0 +1,12 @@
+{
+	"autoload" : {
+		"psr-4" : {
+			"Combodo\\iTop\\Extension\\" : "src"
+		}
+	},
+	"name" : "combodo/combodo-password-expiration",
+	"type" : "itop-extension",
+	"description" : "Password Expiration Enforcement",
+	"require" : {
+	}
+}

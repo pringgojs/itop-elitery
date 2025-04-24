@@ -1,0 +1,49 @@
+<div id="datatable_dlg_{{ oUIBlock.GetTableId() }}" style="display: none;" class=" {{ oUIBlock.GetBlockCode() }}" role="datatable-settings-dialog">
+    <input type="hidden" name="action" value="none">
+    <form id="form_{{ oUIBlock.GetTableId() }}" onsubmit="return false">
+        <div>
+            <input id="dtbl_dlg_settings_{{ oUIBlock.GetTableId() }}" type="radio" name="settings" {% if (oUIBlock.GetOption("bUseCustomSettings") == false) %} checked {% endif %} value="defaults">
+            <label for="dtbl_dlg_settings_{{ oUIBlock.GetTableId() }}">{{ 'UI:UseDefaultSettings'|dict_s }}</label>
+        </div>
+        <div class="ibo-datatableconfig--attributes-panel ibo-panel ibo-is-neutral ibo-is-opened" data-role="ibo-panel">
+            <div class="ibo-panel--header">
+                <div class="ibo-panel--header-left">
+                    <input id="dtbl_dlg_specific_{{ oUIBlock.GetTableId() }}" type="radio" class="specific_settings" name="settings" {% if oUIBlock.GetOption("bUseCustomSettings") %} checked {% endif %} value="specific">
+                    <label for="dtbl_dlg_specific_{{ oUIBlock.GetTableId() }}">{{ 'UI:UseSpecificSettings'|dict_s }}</label>
+                </div>
+            </div>
+            <div class="ibo-panel--body">
+                {{ 'UI:ColumnsAndSortOrder'|dict_s }}<br>
+                <div class="ibo-multi-column">
+                    <div class="ibo-column ibo-without-margin ibo-list-column">
+                        <ul class="sortable_field_list" id="sfl_{{ oUIBlock.GetTableId() }}">
+                        </ul>
+                    </div>
+                </div>
+                <p> {{ 'UI:Display_X_ItemsPerPage_prefix'|dict_s }}<input class="ibo-datatableconfig--attributes-panel--per-page--input" type="text" size="4" name="page_size" value="{{ oUIBlock.GetOption("iPageSize") }}">{{ 'UI:Display_X_ItemsPerPage_suffix'|dict_s }}</p>
+            </div>
+        </div>
+        <div class="ibo-datatableconfig--settings-panel ibo-panel ibo-is-neutral ibo-is-opened" data-role="ibo-panel">
+            <div class="ibo-panel--header">
+                <div class="ibo-panel--header-left">
+                    <input id="dtbl_dlg_save_{{ oUIBlock.GetTableId() }}" type="checkbox" {% if oUIBlock.GetOption("sTableId") != null %}checked{% endif %} name="save_settings">
+                    <label for="dtbl_dlg_save_{{ oUIBlock.GetTableId() }}">{{ 'UI:UseSavetheSettings'|dict_s }}</label>
+                </div>
+            </div>
+            <div class="ibo-panel--body">
+                <div class="ibo-datatableconfig--settings-panel--options-container">
+                    <div class="ibo-datatableconfig--settings-panel--option">
+                        <input id="dtbl_dlg_this_list_{{ oUIBlock.GetTableId() }}" type="radio" name="scope" {% if oUIBlock.GetOption("sTableId") != null %} checked {% else %} disabled="disabled" stay-disabled="true"{% endif %} value="this_list">
+                        <label for="dtbl_dlg_this_list_{{ oUIBlock.GetTableId() }}">{{ 'UI:OnlyForThisList'|dict_s }}</label>
+                    </div>
+                </div>
+                <div class="ibo-datatableconfig--settings-panel--options-container">
+                    <div class="ibo-datatableconfig--settings-panel--option">
+                    <input id="dtbl_dlg_all_{{ oUIBlock.GetTableId() }}" type="radio" name="scope" {% if oUIBlock.GetOption("sTableId") == null %} checked {% endif %} value="defaults">
+                    <label for="dtbl_dlg_all_{{ oUIBlock.GetTableId() }}">{{ 'UI:ForAllLists'|dict_s }}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

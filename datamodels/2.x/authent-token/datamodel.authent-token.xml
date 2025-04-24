@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.6">
+  <constants>
+  </constants>
+  <classes>
+    <class id="PersonalToken" _delta="define">
+      <parent>cmdbAbstractObject</parent>
+      <php_parent>
+        <name>AbstractPersonalToken</name>
+      </php_parent>
+      <properties>
+        <category>addon/authentication,grant_by_profile</category>
+        <abstract>false</abstract>
+        <key_type>autoincrement</key_type>
+        <db_table>priv_personal_token</db_table>
+        <db_key_field>id</db_key_field>
+        <db_final_class_field/>
+        <icon/>
+        <naming>
+          <attributes>
+            <attribute id="application"/>
+          </attributes>
+        </naming>
+        <reconciliation>
+          <attributes>
+            <attribute id="application"/>
+            <attribute id="user_id"/>
+          </attributes>
+        </reconciliation>
+      </properties>
+      <fields>
+        <field id="user_id" xsi:type="AttributeExternalKey">
+          <sql>user_id</sql>
+          <dependencies/>
+          <is_null_allowed>false</is_null_allowed>
+          <allow_target_creation>false</allow_target_creation>
+          <display_style>list</display_style>
+          <target_class>User</target_class>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+        </field>
+        <field id="org_id" xsi:type="AttributeExternalField">
+          <extkey_attcode>user_id</extkey_attcode>
+          <target_attcode>org_id</target_attcode>
+        </field>
+        <field id="auth_token" xsi:type="AttributeOneWayPassword">
+          <sql>auth_token</sql>
+          <default_value/>
+          <is_null_allowed>false</is_null_allowed>
+        </field>
+        <field id="application" xsi:type="AttributeString">
+          <sql>application</sql>
+          <default_value/>
+          <is_null_allowed>false</is_null_allowed>
+        </field>
+        <field id="scope" xsi:type="AttributeEnumSet">
+          <values>
+            <value id="WebService">
+              <code>REST/JSON</code>
+            </value>
+            <value id="Synchro">
+              <code>Synchro</code>
+            </value>
+            <value id="Import">
+              <code>Import</code>
+            </value>
+            <value id="Export">
+              <code>Export</code>
+            </value>
+          </values>
+          <sql>scope</sql>
+          <default_value>WebService</default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="expiration_date" xsi:type="AttributeDateTime" _delta="define">
+          <sql>expiration_date</sql>
+          <default_value/>
+          <tracking_level>none</tracking_level>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="use_count" xsi:type="AttributeInteger" _delta="define">
+          <sql>use_count</sql>
+          <default_value>0</default_value>
+          <tracking_level>none</tracking_level>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="last_use_date" xsi:type="AttributeDateTime" _delta="define">
+          <sql>last_use_date</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+      </fields>
+      <methods>
+        <method id="GetAttributeFlags">
+          <comment></comment>
+          <static>false</static>
+          <access>public </access>
+          <code><![CDATA[   	public function GetAttributeFlags($sAttCode, &$aReasons = array(), $sTargetState = '')
+	{
+		// This function is invoked when the object is EDITED on the Console
+		// It is called for each and every field of the object,
+		// but we just want to change the behavior for a single field
+		if ($sAttCode == 'use_count' || $sAttCode == 'last_use_date')
+		{
+			// Combine the new Flag with those impose by a parent class
+			return(OPT_ATT_READONLY | parent::GetAttributeFlags($sAttCode, $aReasons, $sTargetState));
+		}
+		return parent::GetAttributeFlags($sAttCode, $aReasons, $sTargetState);
+	}]]></code>
+        </method>
+        <method id="GetInitialStateAttributeFlags">
+          <comment></comment>
+          <static>false</static>
+          <access>public </access>
+          <code><![CDATA[   	public function GetInitialStateAttributeFlags($sAttCode, &$aReasons = array())
+{
+    // This function is invoked when the object is CREATED on the Console
+    // It is called for each and every field of the object,
+    // but we just want to change the behavior for a single field
+		if ($sAttCode == 'use_count' || $sAttCode == 'last_use_date')
+    {
+        // Combine the new Flag with those imposed by a parent class
+        return(OPT_ATT_READONLY | parent::GetInitialStateAttributeFlags($sAttCode, $aReasons));
+    }
+    // For other fields ask the parent class to do the job
+    return parent::GetInitialStateAttributeFlags($sAttCode, $aReasons);
+}]]></code>
+        </method>
+      </methods>
+      <presentation>
+        <details>
+          <items>
+            <item id="user_id">
+              <rank>10</rank>
+            </item>
+            <item id="org_id">
+              <rank>20</rank>
+            </item>
+            <item id="application">
+              <rank>30</rank>
+            </item>
+            <item id="scope">
+              <rank>40</rank>
+            </item>
+            <item id="expiration_date">
+              <rank>50</rank>
+            </item>
+            <item id="use_count">
+              <rank>60</rank>
+            </item>
+            <item id="last_use_date">
+              <rank>70</rank>
+            </item>
+          </items>
+        </details>
+        <list>
+          <items>
+            <item id="user_id">
+              <rank>10</rank>
+            </item>
+            <item id="application">
+              <rank>20</rank>
+            </item>
+            <item id="scope">
+              <rank>30</rank>
+            </item>
+            <item id="expiration_date">
+              <rank>40</rank>
+            </item>
+          </items>
+        </list>
+        <search>
+          <items>
+            <item id="user_id">
+              <rank>10</rank>
+            </item>
+            <item id="application">
+              <rank>20</rank>
+            </item>
+            <item id="scope">
+              <rank>30</rank>
+            </item>
+            <item id="expiration_date">
+              <rank>40</rank>
+            </item>
+          </items>
+        </search>
+        <default_search>
+          <items>
+            <item id="application">
+              <rank>10</rank>
+            </item>
+            <item id="user_id">
+              <rank>20</rank>
+            </item>
+            <item id="org_id">
+              <rank>30</rank>
+            </item>
+            <item id="expiration_date">
+              <rank>40</rank>
+            </item>
+          </items>
+        </default_search>
+      </presentation>
+    </class>
+    <class id="UserToken" _delta="define">
+      <parent>cmdbAbstractObject</parent>
+      <php_parent>
+        <name>AbstractApplicationToken</name>
+      </php_parent>
+      <properties>
+        <category>addon/authentication,grant_by_profile</category>
+        <abstract>false</abstract>
+        <key_type>autoincrement</key_type>
+        <db_table>priv_user_token</db_table>
+        <db_key_field>id</db_key_field>
+        <db_final_class_field/>
+        <icon/>
+        <naming>
+          <attributes>
+            <attribute id="login"/>
+          </attributes>
+        </naming>
+      </properties>
+      <fields>
+        <field id="auth_token" xsi:type="AttributeOneWayPassword">
+          <sql>auth_token</sql>
+          <default_value/>
+          <is_null_allowed>false</is_null_allowed>
+        </field>
+      </fields>
+      <methods/>
+      <presentation>
+        <details>
+          <items>
+            <item id="col:col1">
+              <rank>10</rank>
+              <items>
+                <item id="fieldset:User:info">
+                  <rank>10</rank>
+                  <items>
+                    <item id="contactid">
+                      <rank>10</rank>
+                    </item>
+                    <item id="org_id">
+                      <rank>20</rank>
+                    </item>
+                    <item id="email">
+                      <rank>30</rank>
+                    </item>
+                    <item id="login">
+                      <rank>40</rank>
+                    </item>
+                    <item id="language">
+                      <rank>50</rank>
+                    </item>
+                    <item id="status">
+                      <rank>60</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+            <item id="col:col2">
+              <rank>20</rank>
+              <items>
+                <item id="fieldset:User:profiles">
+                  <rank>10</rank>
+                  <items>
+                    <item id="profile_list">
+                      <rank>10</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+            <item id="allowed_org_list">
+              <rank>80</rank>
+            </item>
+            <item id="log">
+              <rank>90</rank>
+            </item>
+          </items>
+        </details>
+        <list>
+          <items>
+            <item id="contactid">
+              <rank>10</rank>
+            </item>
+            <item id="org_id">
+              <rank>20</rank>
+            </item>
+            <item id="email">
+              <rank>30</rank>
+            </item>
+            <item id="status">
+              <rank>40</rank>
+            </item>
+          </items>
+        </list>
+      </presentation>
+    </class>
+  </classes>
+  <dictionaries>
+  </dictionaries>
+  <user_rights>
+    <groups>
+      <group id="PersonalToken" _delta="define">
+        <classes>
+          <class id="PersonalToken"/>
+        </classes>
+      </group>
+    </groups>
+    <profiles/>
+  </user_rights>
+</itop_design>

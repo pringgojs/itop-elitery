@@ -1,0 +1,20 @@
+{
+	"config": {
+		"classmap-authoritative": true
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Combodo\\iTop\\AuthentToken\\" : "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Combodo\\iTop\\AuthentToken\\Test\\": "test/"
+		}
+	},
+	"name" : "combodo/authent-token",
+	"type" : "itop-extension",
+	"description" : "User authentication by token",
+	"require" : {
+	}
+}

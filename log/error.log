@@ -1,0 +1,69 @@
+2025-04-24 09:45:41 | Error   | 1     | Error: Failed to issue SQL query: query = SELECT
+ DISTINCT `lnkFunctionalCIToTicket`.`id` AS `lnkFunctionalCIToTicketid`,
+ `lnkFunctionalCIToTicket`.`ticket_id` AS `lnkFunctionalCIToTicketticket_id`,
+ `Ticket`.`ref` AS `lnkFunctionalCIToTicketticket_ref`,
+ `Ticket`.`title` AS `lnkFunctionalCIToTicketticket_title`,
+ `lnkFunctionalCIToTicket`.`functionalci_id` AS `lnkFunctionalCIToTicketfunctionalci_id`,
+ `FunctionalCI_functionalci_id`.`name` AS `lnkFunctionalCIToTicketfunctionalci_name`,
+ `lnkFunctionalCIToTicket`.`impact` AS `lnkFunctionalCIToTicketimpact`,
+ `lnkFunctionalCIToTicket`.`impact_code` AS `lnkFunctionalCIToTicketimpact_code`,
+ CAST(CONCAT(COALESCE(`FunctionalCI_functionalci_id`.`name`, ''), COALESCE(' / ', ''), COALESCE(`Ticket`.`ref`, '')) AS CHAR) AS `lnkFunctionalCIToTicketfriendlyname`,
+ CAST(CONCAT(COALESCE(`Ticket`.`ref`, '')) AS CHAR) AS `lnkFunctionalCIToTicketticket_id_friendlyname`,
+ `Ticket`.`finalclass` AS `lnkFunctionalCIToTicketticket_id_finalclass_recall`,
+ IF((`FunctionalCI_functionalci_id`.`finalclass` IN ('Middleware', 'DBServer', 'WebServer', 'PCSoftware', 'OtherSoftware')), CAST(CONCAT(COALESCE(`FunctionalCI_functionalci_id`.`name`, ''), COALESCE(' ', ''), COALESCE(`FunctionalCI_system_id`.`name`, '')) AS CHAR), CAST(CONCAT(COALESCE(`FunctionalCI_functionalci_id`.`name`, '')) AS CHAR)) AS `lnkFunctionalCIToTicketfunctionalci_id_friendlyname`,
+ `FunctionalCI_functionalci_id`.`finalclass` AS `lnkFunctionalCIToTicketfunctionalci_id_finalclass_recall`,
+ IF((`FunctionalCI_functionalci_id`.`finalclass` IN ('FunctionalCI')), COALESCE(0, 0), IF((`FunctionalCI_functionalci_id`.`finalclass` IN ('Hypervisor', 'Farm', 'VirtualMachine')), COALESCE((`FunctionalCI_functionalci_id_poly_VirtualDevice`.`status` = 'obsolete'), 0), IF((`FunctionalCI_functionalci_id`.`finalclass` IN ('WebApplication')), COALESCE(COALESCE((`WebServer_webserver_id_SoftwareInstance`.`status` = 'inactive'), 0), 0), IF((`FunctionalCI_functionalci_id`.`finalclass` IN ('DatabaseSchema')), COALESCE(COALESCE((`DBServer_dbserver_id_SoftwareInstance`.`status` = 'inactive'), 0), 0), IF((`FunctionalCI_functionalci_id`.`finalclass` IN ('MiddlewareInstance')), COALESCE(COALESCE((`Middleware_middleware_id_SoftwareInstance`.`status` = 'inactive'), 0), 0), IF((`FunctionalCI_functionalci_id`.`finalclass` IN ('Middleware', 'DBServer', 'WebServer', 'PCSoftware', 'OtherSoftware')), COALESCE((`FunctionalCI_functionalci_id_poly_SoftwareInstance`.`status` = 'inactive'), 0), IF((`FunctionalCI_functionalci_id`.`finalclass` IN ('BusinessProcess')), COALESCE((`FunctionalCI_functionalci_id_poly_BusinessProcess`.`status` = 'inactive'), 0), IF((`FunctionalCI_functionalci_id`.`finalclass` IN ('ApplicationSolution')), COALESCE((`FunctionalCI_functionalci_id_poly_ApplicationSolution`.`status` = 'inactive'), 0), COALESCE((`FunctionalCI_functionalci_id_poly_PhysicalDevice`.`status` = 'obsolete'), 0))))))))) AS `lnkFunctionalCIToTicketfunctionalci_id_obsolescence_flag`
+ FROM 
+   `lnkfunctionalcitoticket` AS `lnkFunctionalCIToTicket`
+   INNER JOIN 
+      `ticket` AS `Ticket`
+    ON `lnkFunctionalCIToTicket`.`ticket_id` = `Ticket`.`id`
+   INNER JOIN (
+      `functionalci` AS `FunctionalCI_functionalci_id` 
+      LEFT JOIN (
+         `softwareinstance` AS `FunctionalCI_functionalci_id_poly_SoftwareInstance` 
+         INNER JOIN 
+            `functionalci` AS `FunctionalCI_system_id`
+          ON `FunctionalCI_functionalci_id_poly_SoftwareInstance`.`functionalci_id` = `FunctionalCI_system_id`.`id`
+      ) ON `FunctionalCI_functionalci_id`.`id` = `FunctionalCI_functionalci_id_poly_SoftwareInstance`.`id`
+      LEFT JOIN 
+         `virtualdevice` AS `FunctionalCI_functionalci_id_poly_VirtualDevice`
+       ON `FunctionalCI_functionalci_id`.`id` = `FunctionalCI_functionalci_id_poly_VirtualDevice`.`id`
+      LEFT JOIN (
+         `webapplication` AS `FunctionalCI_functionalci_id_poly_WebApplication` 
+         INNER JOIN 
+            `softwareinstance` AS `WebServer_webserver_id_SoftwareInstance`
+          ON `FunctionalCI_functionalci_id_poly_WebApplication`.`webserver_id` = `WebServer_webserver_id_SoftwareInstance`.`id`
+      ) ON `FunctionalCI_functionalci_id`.`id` = `FunctionalCI_functionalci_id_poly_WebApplication`.`id`
+      LEFT JOIN (
+         `databaseschema` AS `FunctionalCI_functionalci_id_poly_DatabaseSchema` 
+         INNER JOIN 
+            `softwareinstance` AS `DBServer_dbserver_id_SoftwareInstance`
+          ON `FunctionalCI_functionalci_id_poly_DatabaseSchema`.`dbserver_id` = `DBServer_dbserver_id_SoftwareInstance`.`id`
+      ) ON `FunctionalCI_functionalci_id`.`id` = `FunctionalCI_functionalci_id_poly_DatabaseSchema`.`id`
+      LEFT JOIN (
+         `middlewareinstance` AS `FunctionalCI_functionalci_id_poly_MiddlewareInstance` 
+         INNER JOIN 
+            `softwareinstance` AS `Middleware_middleware_id_SoftwareInstance`
+          ON `FunctionalCI_functionalci_id_poly_MiddlewareInstance`.`middleware_id` = `Middleware_middleware_id_SoftwareInstance`.`id`
+      ) ON `FunctionalCI_functionalci_id`.`id` = `FunctionalCI_functionalci_id_poly_MiddlewareInstance`.`id`
+      LEFT JOIN 
+         `businessprocess` AS `FunctionalCI_functionalci_id_poly_BusinessProcess`
+       ON `FunctionalCI_functionalci_id`.`id` = `FunctionalCI_functionalci_id_poly_BusinessProcess`.`id`
+      LEFT JOIN 
+         `applicationsolution` AS `FunctionalCI_functionalci_id_poly_ApplicationSolution`
+       ON `FunctionalCI_functionalci_id`.`id` = `FunctionalCI_functionalci_id_poly_ApplicationSolution`.`id`
+      LEFT JOIN 
+         `physicaldevice` AS `FunctionalCI_functionalci_id_poly_PhysicalDevice`
+       ON `FunctionalCI_functionalci_id`.`id` = `FunctionalCI_functionalci_id_poly_PhysicalDevice`.`id`
+   ) ON `lnkFunctionalCIToTicket`.`functionalci_id` = `FunctionalCI_functionalci_id`.`id`
+ WHERE ((((`Ticket`.`id` = '2228') AND COALESCE((`WebServer_webserver_id_SoftwareInstance`.`finalclass` IN ('WebServer')), 1)) AND COALESCE((`DBServer_dbserver_id_SoftwareInstance`.`finalclass` IN ('DBServer')), 1)) AND COALESCE((`Middleware_middleware_id_SoftwareInstance`.`finalclass` IN ('Middleware')), 1))
+ ORDER BY `lnkFunctionalCIToTicketfriendlyname` ASC
+ , mysql_errno = 1146, mysql_error = Table 'db_elitery_itop.virtualdevice' doesn't exist. | IssueLog |||
+2025-04-24 09:46:29 | Error   | 1     | Symfony\Component\Routing\Router::generate(): Argument #1 ($name) must be of type string, null given, called in D:\laragon-www\itop-3.1\env-production\itop-portal-base\portal\src\Routing\UrlGenerator.php on line 55 | TypeError |||
+array (
+  'exception class' => 'TypeError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\lib\\symfony\\routing\\Router.php',
+  'line' => 233,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
