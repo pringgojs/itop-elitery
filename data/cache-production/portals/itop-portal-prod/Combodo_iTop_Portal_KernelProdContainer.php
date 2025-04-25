@@ -16,6 +16,6 @@ if (!\class_exists(Combodo_iTop_Portal_KernelProdContainer::class, false)) {
 
 return new \Container7LIfrgT\Combodo_iTop_Portal_KernelProdContainer([
     'container.build_hash' => '7LIfrgT',
-    'container.build_id' => '2a3d7bf2',
-    'container.build_time' => 1745480784,
+    'container.build_id' => 'ba19e0db',
+    'container.build_time' => 1745566453,
 ], __DIR__.\DIRECTORY_SEPARATOR.'Container7LIfrgT');

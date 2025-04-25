@@ -1,0 +1,57 @@
+
+{% set org_id = app['combodo.current_user'].Get('org_id') %}
+{% set biling_link = "" %}
+{% set asset_link = "" %}
+{% if org_id == 1 %}
+	{% set biling_link = "https://lookerstudio.google.com/reporting/2cb71c71-eb46-411c-ac11-26493959f548" %}
+{% elseif org_id == 141 %}
+	{% set biling_link = "https://lookerstudio.google.com/reporting/c2a6fbf1-104a-4576-a61a-93c0fa282a4c" %}
+	{% set asset_link = "https://lookerstudio.google.com/reporting/481b8d7a-7059-4450-bfee-26bc9a315802" %}
+{% elseif org_id == 108 and org_id == 166 %}
+	{% set biling_link = "https://lookerstudio.google.com/reporting/daf7a5be-0cf7-48ed-a9fb-c9e1831e5375" %}
+	{% set asset_link = "https://lookerstudio.google.com/reporting/84ab7144-471b-4434-b9f2-deacb6c18c77" %}
+{% elseif org_id == 248 %}
+	{% set biling_link = "https://lookerstudio.google.com/reporting/b7aa1160-2d85-4de6-917a-8177bd689a70" %}
+	{% set asset_link = "https://lookerstudio.google.com/reporting/7aad8bb8-b721-4953-932b-266432b876d1" %}
+{% endif %}	
+
+{% if biling_link != '' %}
+<div class="col-xs-6 col-sm-6">
+	<a href="{{biling_link}}" target="_blank" class="tile" id="brick-faq" data-brick-id="faq">
+		<div class="tile_decoration">
+				<svg style="height:6em; display: inline-block;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+					</svg>
+		</div>
+		<div class="tile_body">
+			<div class="tile_title">Billing on Looker</div>
+			<div class="tile_description"><p>This link directs to the billing dashboard to view detailed information related to billing.</p></div>
+		</div>
+	</a>
+</div>
+{% endif %}	
+
+{% if asset_link != '' %}
+
+<div class="col-xs-6 col-sm-6">
+	<a href="{{asset_link}}" target="_blank" class="tile" id="brick-faq" data-brick-id="faq">
+		<div class="tile_decoration">
+			<svg style="height:6em; display: inline-block;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+					</svg>
+		</div>
+		<div class="tile_body">
+			<div class="tile_title">Asset on Looker</div>
+			<div class="tile_description">
+				<p>Click here to access the asset dashboard.</p>
+			</div>
+		</div>
+	</a>
+</div>
+{% endif %}	

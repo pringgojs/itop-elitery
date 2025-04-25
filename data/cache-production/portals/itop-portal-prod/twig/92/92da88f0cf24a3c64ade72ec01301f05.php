@@ -122,6 +122,11 @@ class __TwigTemplate_84618b26f28736030ae3d4478b5bc972 extends Template
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['brick'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 27
+        echo "
+\t\t\t\t";
+        // line 28
+        $this->loadTemplate("itop-portal-base/portal/templates/home/looker.html.twig", "itop-portal-base/portal/templates/home/layout.html.twig", 28)->display($context);
+        // line 29
         echo "\t\t\t</section>
 \t\t</div>
 \t</div>
@@ -141,7 +146,7 @@ class __TwigTemplate_84618b26f28736030ae3d4478b5bc972 extends Template
 
     public function getDebugInfo()
     {
-        return array (  125 => 27,  111 => 26,  108 => 25,  105 => 24,  102 => 23,  96 => 21,  93 => 20,  90 => 19,  73 => 18,  68 => 15,  66 => 14,  59 => 9,  57 => 8,  53 => 7,  46 => 5,  36 => 3,);
+        return array (  130 => 29,  128 => 28,  125 => 27,  111 => 26,  108 => 25,  105 => 24,  102 => 23,  96 => 21,  93 => 20,  90 => 19,  73 => 18,  68 => 15,  66 => 14,  59 => 9,  57 => 8,  53 => 7,  46 => 5,  36 => 3,);
     }
 
     public function getSourceContext()

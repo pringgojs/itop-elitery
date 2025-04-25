@@ -67,3 +67,129 @@ array (
   'line' => 233,
   'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
 )
+2025-04-24 11:38:35 | Error   | 1     | Unexpected "comment" tag (expecting closing tag for the "block" tag defined near line 8). | Twig\Error\SyntaxError |||
+array (
+  'exception class' => 'Twig\\Error\\SyntaxError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\templates\\home\\layout.html.twig',
+  'line' => 32,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:06:15 | Error   | 1     | Call to a member function offsetExists() on null | Error |||
+array (
+  'exception class' => 'Error',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\src\\Twig\\AppVariable.php',
+  'line' => 51,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:07:54 | Error   | 1     | Did you forget to run "composer require symfony/debug-bundle"? Unknown function "dump" in "itop-portal-base/portal/templates/home/layout.html.twig". | Twig\Error\SyntaxError |||
+array (
+  'exception class' => 'Twig\\Error\\SyntaxError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\lib\\symfony\\twig-bridge\\UndefinedCallableHandler.php',
+  'line' => 97,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:08:14 | Error   | 1     | Unknown "die" function. | Twig\Error\SyntaxError |||
+array (
+  'exception class' => 'Twig\\Error\\SyntaxError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\templates\\home\\layout.html.twig',
+  'line' => 66,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:08:35 | Error   | 1     | Unknown "var_dump" function. | Twig\Error\SyntaxError |||
+array (
+  'exception class' => 'Twig\\Error\\SyntaxError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\templates\\home\\layout.html.twig',
+  'line' => 66,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:08:51 | Error   | 1     | Did you forget to run "composer require symfony/debug-bundle"? Unknown function "dump" in "itop-portal-base/portal/templates/home/layout.html.twig". | Twig\Error\SyntaxError |||
+array (
+  'exception class' => 'Twig\\Error\\SyntaxError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\lib\\symfony\\twig-bridge\\UndefinedCallableHandler.php',
+  'line' => 97,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:13:02 | Error   | 1     | Call to a member function offsetExists() on null | Error |||
+array (
+  'exception class' => 'Error',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\src\\Twig\\AppVariable.php',
+  'line' => 51,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:13:21 | Error   | 1     | Call to a member function offsetExists() on null | Error |||
+array (
+  'exception class' => 'Error',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\src\\Twig\\AppVariable.php',
+  'line' => 51,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:14:05 | Error   | 1     | Call to a member function offsetExists() on null | Error |||
+array (
+  'exception class' => 'Error',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\src\\Twig\\AppVariable.php',
+  'line' => 51,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:17:24 | Error   | 1     | Call to a member function offsetExists() on null | Error |||
+array (
+  'exception class' => 'Error',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\src\\Twig\\AppVariable.php',
+  'line' => 51,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:18:08 | Error   | 1     | Object of class Combodo\iTop\Portal\Twig\AppVariable could not be converted to string | Error |||
+array (
+  'exception class' => 'Error',
+  'file' => 'D:\\laragon-www\\itop-3.1\\data\\cache-production\\portals\\itop-portal-prod\\twig\\92\\92da88f0cf24a3c64ade72ec01301f05.php',
+  'line' => 174,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:23:41 | Error   | 1     | An exception has been thrown during the rendering of a template ("Unknown attribute org_name from class UserLocal"). | Twig\Error\RuntimeError |||
+array (
+  'exception class' => 'Twig\\Error\\RuntimeError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\templates\\home\\layout.html.twig',
+  'line' => 67,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:29:12 | Error   | 1     | An exception has been thrown during the rendering of a template ("Unknown attribute manager_id from class UserLocal"). | Twig\Error\RuntimeError |||
+array (
+  'exception class' => 'Twig\\Error\\RuntimeError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\templates\\home\\layout.html.twig',
+  'line' => 67,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:29:36 | Error   | 1     | Object of class Combodo\iTop\Portal\Twig\CurrentUserAccessor could not be converted to string | Error |||
+array (
+  'exception class' => 'Error',
+  'file' => 'D:\\laragon-www\\itop-3.1\\data\\cache-production\\portals\\itop-portal-prod\\twig\\92\\92da88f0cf24a3c64ade72ec01301f05.php',
+  'line' => 167,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 06:34:00 | Error   | 1     | An exception has been thrown during the rendering of a template ("Unknown attribute org_name from class UserLocal"). | Twig\Error\RuntimeError |||
+array (
+  'exception class' => 'Twig\\Error\\RuntimeError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\templates\\home\\layout.html.twig',
+  'line' => 69,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 07:29:45 | Error   | 2     | Unexpected "elsif" tag (expecting closing tag for the "if" tag defined near line 31). | Twig\Error\SyntaxError |||
+array (
+  'exception class' => 'Twig\\Error\\SyntaxError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\templates\\home\\layout.html.twig',
+  'line' => 33,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 07:29:47 | Error   | 2     | Unexpected "elsif" tag (expecting closing tag for the "if" tag defined near line 31). | Twig\Error\SyntaxError |||
+array (
+  'exception class' => 'Twig\\Error\\SyntaxError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\templates\\home\\layout.html.twig',
+  'line' => 33,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
+2025-04-25 09:29:04 | Error   | 1     | Unknown "comment" tag. | Twig\Error\SyntaxError |||
+array (
+  'exception class' => 'Twig\\Error\\SyntaxError',
+  'file' => 'D:\\laragon-www\\itop-3.1\\env-production\\itop-portal-base\\portal\\templates\\home\\looker.html.twig',
+  'line' => 63,
+  'uri' => 'http://localhost/itop-3.1/pages/exec.php/?exec_module=itop-portal-base&exec_page=index.php&portal_id=itop-portal',
+)
