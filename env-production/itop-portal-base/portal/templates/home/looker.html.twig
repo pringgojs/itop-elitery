@@ -15,8 +15,13 @@
 	{% set asset_link = "https://lookerstudio.google.com/reporting/7aad8bb8-b721-4953-932b-266432b876d1" %}
 {% endif %}	
 
+{% set element_class = "col-xs-6 col-sm-6" %}
+{% if biling_link == '' or asset_link == '' %}
+{% set element_class = "col-xs-12 col-sm-12" %}
+{% endif %}	
+
 {% if biling_link != '' %}
-<div class="col-xs-6 col-sm-6">
+<div class="{{element_class}}">
 	<a href="{{biling_link}}" target="_blank" class="tile" id="brick-faq" data-brick-id="faq">
 		<div class="tile_decoration">
 				<svg style="height:6em; display: inline-block;
@@ -36,7 +41,7 @@
 
 {% if asset_link != '' %}
 
-<div class="col-xs-6 col-sm-6">
+<div class="{{element_class}}">
 	<a href="{{asset_link}}" target="_blank" class="tile" id="brick-faq" data-brick-id="faq">
 		<div class="tile_decoration">
 			<svg style="height:6em; display: inline-block;
