@@ -10,7 +10,7 @@
 
 1. Copy the `looker.html.twig` file to the desired location:
    ```bash
-   cp env-production/itop-portal-base/portal/templates/home/looker.html.twig
+   env-production/itop-portal-base/portal/templates/home/looker.html.twig
    ```
 2. **Update Layout Portal File**
    Update file di path: env-production/itop-portal-base/portal/templates/home/layout.html.twig
@@ -26,7 +26,7 @@
    Setiap ada perubahan file `twig` bersihkan dengan menjalan perintah ini di console di root project.
 
    ```bash
-    rm -rf cache-production
+    rm -rf data/cache-production
    ```
 
 ## Post-Deployment Checklist
