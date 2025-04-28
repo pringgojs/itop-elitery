@@ -13,9 +13,10 @@
    env-production/itop-portal-base/portal/templates/home/looker.html.twig
    ```
 2. **Update Layout Portal File**
+
    Update file di path: env-production/itop-portal-base/portal/templates/home/layout.html.twig
 
-   tambahkan code ini di baris: 28 setelah `{% endfor %}`
+   Tambahkan code ini di baris: 28 setelah `{% endfor %}`
 
    ```twig
     {% include 'itop-portal-base/portal/templates/home/looker.html.twig' %}
